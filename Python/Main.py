@@ -26,11 +26,14 @@ generatorMap = GeneratorMap(DIMENSIONS, finalPoint)
 # map = generatorMap.createMap1()
 
 ## Mapa 2 con resultado con obstaculo ##
-map = generatorMap.createMap2()
+# map = generatorMap.createMap2()
 
 ## Mapa 3 sin resultado ##
 # FPS = 500
 # map = generatorMap.createMap3()
+
+## Mapa 4 aleatorio ##
+map = generatorMap.createMap4()
 
 ## Paleta de colores ##
 WHITE = (255, 255, 255)

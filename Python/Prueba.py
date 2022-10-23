@@ -12,6 +12,14 @@ print(lista)
 print("El elemento 2 deberia ser 5: ")
 print(lista.pop(2))
 print(lista[-1])
+lista.append(10)
+lista.append(60)
+lista.append(50)
+lista.append(20)
+print(lista)
+
+for index in range(0, len(lista), 1):
+    print(lista[index])
 
 print("-------------------")
 
@@ -29,6 +37,7 @@ print(l.index(cas2))
 l.insert(1, cas1)
 cas1.x = 100
 print(l[1].x)
+
 
 print("-------------------")
 if (cas1 == cas2): print("Son iguales")

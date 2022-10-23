@@ -1,5 +1,6 @@
 ## Clase para Autogenerar un Mapa ##
 from Algorithm.Casilla import Casilla
+import random
 
 class GeneratorMap:
     
@@ -71,4 +72,22 @@ class GeneratorMap:
         map[self.finalPoint[0] - 1][self.finalPoint[1] - 1].setObstaculo(True)
         map[self.finalPoint[0]][self.finalPoint[1] - 1].setObstaculo(True)
         map[self.finalPoint[0] - 1][self.finalPoint[1]].setObstaculo(True)
+        return map
+    
+    def createMap4(self):
+        print("Mapa aleatorio")
+        map = list()
+        for col in range(0, self.DIMENSIONS, 1):
+            lista = list()
+            for row in range(0, self.DIMENSIONS, 1):
+                if row == 0 or row == self.DIMENSIONS-1 or col == 0 or col == self.DIMENSIONS-1:
+                    lista.append(Casilla(col, row, True, self.finalPoint))
+                else:
+                    # lista.append(random.randint(0, 1))
+                    num = random.randint(0,4)
+                    if num == 0:
+                        lista.append(Casilla(col, row, True, self.finalPoint))
+                    else:
+                        lista.append(Casilla(col, row, False, self.finalPoint))
+            map.append(lista)  
         return map
