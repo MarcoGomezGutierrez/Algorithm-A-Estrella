@@ -81,9 +81,6 @@ class Pathfinding:
                     vecinos.append(self.map[x][y])
         return vecinos
     
-    def print(self, node, color):
-        pygame.draw.rect(self.PANTALLA, color, (node.x * 10, node.y * 10, 10, 10))
-    
         
                     
                     

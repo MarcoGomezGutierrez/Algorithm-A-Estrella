@@ -72,6 +72,7 @@ def printResult():
 # for col in range(0, COLUMNAS, STEPS):
 #     for row in range(0, FILAS, STEPS):
 #         pygame.draw.rect(PANTALLA, NEGRO, (col, row, STEPS, STEPS))
+
 def app():
     pathfanding.algorithm()
     printOpenAndClosedList()
