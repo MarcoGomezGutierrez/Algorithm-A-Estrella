@@ -1,0 +1,1 @@
+Algoritmo implmentado desde GNU Octave, es un lenguaje muy copiado y mal hecho de Matlab. Va tan mal que no puedo probar el algoritmo con la imagen, me tengo que generar una matriz más pequeña.
