@@ -1,4 +1,5 @@
 from Algorithm.Casilla import Casilla
+from Others.GeneratorMap import GeneratorMap
 
 cas1 = Casilla(1,1,True,[2,2])
 cas2 = Casilla(3,3,False,[2,2])
@@ -42,3 +43,9 @@ print(l[1].x)
 print("-------------------")
 if (cas1 == cas2): print("Son iguales")
 else: print("No son iguales")
+
+generatorMap = GeneratorMap(100, [100-1,100-1])
+map = generatorMap.createMap6()
+
+print(len(map))
+print(len(map[0]))

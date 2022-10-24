@@ -9,18 +9,18 @@ from Others.Interval import setInterval
 pygame.init()
 
 
-DIMENSIONS = 100
+dimensions = 100
 STEPS = 10
-COLUMNAS = DIMENSIONS * STEPS
-FILAS = DIMENSIONS * STEPS
+columnas = dimensions * STEPS
+filas = dimensions * STEPS
 
 FPS = 50
 
 startPoint = [1 , 1]
-finalPoint = [DIMENSIONS - 2, DIMENSIONS - 2]
+finalPoint = [dimensions - 2, dimensions - 2]
 
 ## Generador de Mapas ##
-generatorMap = GeneratorMap(DIMENSIONS, finalPoint)
+generatorMap = GeneratorMap(dimensions, finalPoint)
 
 ## Mapa 1 con resultado sin obstaculo ##             
 # map = generatorMap.createMap1()
@@ -33,7 +33,15 @@ generatorMap = GeneratorMap(DIMENSIONS, finalPoint)
 # map = generatorMap.createMap3()
 
 ## Mapa 4 aleatorio ##
-map = generatorMap.createMap4()
+# map = generatorMap.createMap4()
+
+## Mapa 5 con obstaculos con solucion ##
+# map = generatorMap.createMap5()
+
+## Mapa 6 imagen ##
+map = generatorMap.createMap6()
+columnas = generatorMap.column
+filas = generatorMap.row
 
 ## Paleta de colores ##
 WHITE = (255, 255, 255)
@@ -45,7 +53,7 @@ PINK = (255, 0, 128)
 
 
 ## Pantalla con sus dimensiones ##
-PANTALLA = pygame.display.set_mode((COLUMNAS, FILAS))
+PANTALLA = pygame.display.set_mode((columnas, filas))
 ## Nombre de la pantalla ##
 pygame.display.set_caption('Algoritmo A*')
 
@@ -72,8 +80,8 @@ def printResult():
 
 
 ## Parametros para pintar un Rect: ventana donde se va a mostrar, color, (x, y, width, height)
-# for col in range(0, COLUMNAS, STEPS):
-#     for row in range(0, FILAS, STEPS):
+# for col in range(0, columnas, STEPS):
+#     for row in range(0, filas, STEPS):
 #         pygame.draw.rect(PANTALLA, NEGRO, (col, row, STEPS, STEPS))
 
 def app():
