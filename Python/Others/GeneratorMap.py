@@ -7,10 +7,11 @@ import random
 
 class GeneratorMap:
     
-    def __init__(self, dimensions, finalPoint):
+    def __init__(self, dimensions, steps, finalPoint):
         self.dimensions = dimensions
-        self.column = self.dimensions * 10
-        self.row = self.dimensions * 10
+        self.column = dimensions * steps
+        self.row = dimensions * steps
+        self.steps = steps
         self.finalPoint = finalPoint
     
     def createMap1(self):
@@ -139,13 +140,16 @@ class GeneratorMap:
     
     def createMap6(self):
         image = img.imread('Python\Img\mapa2.jpg')
-        self.column = len(image)
-        self.row = len(image[0])
+        self.column = len(image) * self.steps
+        self.row = len(image[0]) * self.steps
+        self.finalPoint = [self.column / self.steps - 2, self.row / self.steps - 2]
         map = list()
         for col in range(0, len(image), 1):
+            lista = list()
             for row in range(0, len(image[col]),1):
-                lista = list()
-                if sum(image[col][row]) < 40:
+                if row == 0 or row == self.row / self.steps - 1 or col == 0 or col == self.column / self.steps - 1:
+                    lista.append(Casilla(col, row, True, self.finalPoint))
+                elif sum(image[col][row]) < 40:
                     lista.append(Casilla(col, row, True, self.finalPoint))
                 else:
                     lista.append(Casilla(col, row, False, self.finalPoint))

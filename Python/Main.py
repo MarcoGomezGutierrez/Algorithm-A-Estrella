@@ -10,17 +10,17 @@ pygame.init()
 
 
 dimensions = 100
-STEPS = 10
-columnas = dimensions * STEPS
-filas = dimensions * STEPS
+steps = 10
+columnas = dimensions * steps
+filas = dimensions * steps
 
-FPS = 50
+FPS = 1000
 
 startPoint = [1 , 1]
-finalPoint = [dimensions - 2, dimensions - 2]
+finalPoint = [columnas / steps - 2, filas / steps - 2]
 
 ## Generador de Mapas ##
-generatorMap = GeneratorMap(dimensions, finalPoint)
+generatorMap = GeneratorMap(dimensions, steps, finalPoint)
 
 ## Mapa 1 con resultado sin obstaculo ##             
 # map = generatorMap.createMap1()
@@ -39,9 +39,12 @@ generatorMap = GeneratorMap(dimensions, finalPoint)
 # map = generatorMap.createMap5()
 
 ## Mapa 6 imagen ##
+steps = 2
+generatorMap.steps = steps
 map = generatorMap.createMap6()
 columnas = generatorMap.column
 filas = generatorMap.row
+finalPoint = generatorMap.finalPoint
 
 ## Paleta de colores ##
 WHITE = (255, 255, 255)
@@ -64,25 +67,25 @@ pygame.display.set_caption('Algoritmo A*')
 ## DIBUJAR MATRIZ EN EL TABLERO ##
 for list in map:
     for casilla in list:
-        pygame.draw.rect(PANTALLA, casilla.color, (casilla.x * 10, casilla.y * 10, STEPS, STEPS))
+        pygame.draw.rect(PANTALLA, casilla.color, (casilla.x * steps, casilla.y * steps, steps, steps))
 
 
 ## Posicion Inicial y Final del Algoritmo y pintarlas en rosa ##
-pygame.draw.rect(PANTALLA, PINK, (startPoint[0] * 10, startPoint[1] * 10, STEPS, STEPS))          
-pygame.draw.rect(PANTALLA, PINK, (finalPoint[0] * 10, finalPoint[1] * 10, STEPS, STEPS))
+pygame.draw.rect(PANTALLA, PINK, (startPoint[0] * steps, startPoint[1] * steps, steps, steps))          
+pygame.draw.rect(PANTALLA, PINK, (finalPoint[0] * steps, finalPoint[1] * steps, steps, steps))
 
 pathfanding = Pathfinding(map, startPoint, finalPoint, PANTALLA)
 
 # Pintar el resultado del mapa ##
 def printResult():
     for node in pathfanding.result:
-        pygame.draw.rect(PANTALLA, BLUE, (node.x * 10, node.y * 10, STEPS, STEPS))
+        pygame.draw.rect(PANTALLA, BLUE, (node.x * steps, node.y * steps, steps, steps))
 
 
 ## Parametros para pintar un Rect: ventana donde se va a mostrar, color, (x, y, width, height)
-# for col in range(0, columnas, STEPS):
-#     for row in range(0, filas, STEPS):
-#         pygame.draw.rect(PANTALLA, NEGRO, (col, row, STEPS, STEPS))
+# for col in range(0, columnas, steps):
+#     for row in range(0, filas, steps):
+#         pygame.draw.rect(PANTALLA, NEGRO, (col, row, steps, steps))
 
 def app():
     pathfanding.algorithm()
@@ -93,11 +96,12 @@ def app():
 
 def printOpenAndClosedList():
     for node in pathfanding.openList:
-        pygame.draw.rect(PANTALLA, GREEN, (node.x * STEPS, node.y * STEPS, STEPS, STEPS))
+        pygame.draw.rect(PANTALLA, GREEN, (node.x * steps, node.y * steps, steps, steps))
     for node in pathfanding.closedList:
-        pygame.draw.rect(PANTALLA, RED, (node.x * STEPS, node.y * STEPS, STEPS, STEPS))
+        pygame.draw.rect(PANTALLA, RED, (node.x * steps, node.y * steps, steps, steps))
         
 interval = setInterval(1/FPS, app)
+# interval = setInterval(0, app)
 
 ## Funcion para pintar constantemente la ventana ##
 while True:

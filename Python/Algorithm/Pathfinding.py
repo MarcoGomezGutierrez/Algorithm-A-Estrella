@@ -77,8 +77,13 @@ class Pathfinding:
         for x in range(casilla.x - 1, casilla.x + 2, 1):
             for y in range(casilla.y - 1, casilla.y + 2, 1):
                 ## Recorremos la matriz de vecinos y comprobamos que no sea un obstaculo y que no sea el mismo nodo
-                if not self.map[x][y].obstaculo and (self.map[x][y].x != casilla.x or self.map[x][y].y != casilla.y):
-                    vecinos.append(self.map[x][y])
+                try :
+                    if not self.map[x][y].obstaculo and (self.map[x][y].x != casilla.x or self.map[x][y].y != casilla.y):
+                        vecinos.append(self.map[x][y])
+                except:
+                    pass
+                    
+                
         return vecinos
     
         

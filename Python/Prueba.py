@@ -44,8 +44,8 @@ print("-------------------")
 if (cas1 == cas2): print("Son iguales")
 else: print("No son iguales")
 
-generatorMap = GeneratorMap(100, [100-1,100-1])
+generatorMap = GeneratorMap(100, 1, [100-1,100-1])
 map = generatorMap.createMap6()
 
 print(len(map))
-print(len(map[0]))
+print(len(map[301]))
