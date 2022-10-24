@@ -14,7 +14,7 @@ steps = 10
 columnas = dimensions * steps
 filas = dimensions * steps
 
-FPS = 1000
+FPS = 50
 
 startPoint = [1 , 1]
 finalPoint = [columnas / steps - 2, filas / steps - 2]
@@ -39,7 +39,8 @@ generatorMap = GeneratorMap(dimensions, steps, finalPoint)
 # map = generatorMap.createMap5()
 
 ## Mapa 6 imagen ##
-steps = 2
+FPS = 1000
+steps = 3
 generatorMap.steps = steps
 map = generatorMap.createMap6()
 columnas = generatorMap.column
