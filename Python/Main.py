@@ -39,10 +39,15 @@ generatorMap = GeneratorMap(dimensions, steps, finalPoint)
 # map = generatorMap.createMap5()
 
 ## Mapa 6 imagen ##
+# Imagen irregular
+# PATH = 'Python\Img\mapa2.jpg'
+# steps = 2
+# Imagen de un laberinto
+PATH = 'Python\Img\laberinto.jpg'
+steps = 10
 FPS = 1000
-steps = 3
 generatorMap.steps = steps
-map = generatorMap.createMap6()
+map = generatorMap.createMap6(PATH)
 columnas = generatorMap.column
 filas = generatorMap.row
 finalPoint = generatorMap.finalPoint

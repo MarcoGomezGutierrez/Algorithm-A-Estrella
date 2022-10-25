@@ -138,8 +138,8 @@ class GeneratorMap:
             
         return map
     
-    def createMap6(self):
-        image = img.imread('Python\Img\mapa2.jpg')
+    def createMap6(self, PATH):
+        image = img.imread(PATH)
         self.column = len(image) * self.steps
         self.row = len(image[0]) * self.steps
         self.finalPoint = [self.column / self.steps - 2, self.row / self.steps - 2]
